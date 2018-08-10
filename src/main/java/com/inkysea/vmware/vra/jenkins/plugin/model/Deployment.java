@@ -243,7 +243,10 @@ public class Deployment {
                     machineDataList.add(jsonData.getAsJsonObject().get("Component").getAsString());
                     machineDataList.add(content.getAsJsonObject().get("name").getAsString());
                     machineDataList.add(jsonNetworkData.getAsJsonObject().get("NETWORK_NAME").getAsString());
-                    machineDataList.add(jsonNetworkData.getAsJsonObject().get("NETWORK_ADDRESS").getAsString());
+                    try {
+                        machineDataList.add(jsonNetworkData.getAsJsonObject().get("NETWORK_ADDRESS").getAsString());
+                    } catch (NullPointerException exception) {
+                    }
 
                     machineList.add(machineDataList);
 
